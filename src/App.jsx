@@ -1,37 +1,35 @@
-// src/App.jsx
-import React from 'react';
-import { AnalysisForm } from './components/AnalysisForm';
-import { DashboardCharts } from './components/DashboardCharts';
+import './App.css';
+import SentimentAnalyzer from './components/SentimentAnalyzer.jsx';
+import SentimentCharts from './components/SentimentCharts.jsx';
 
 function App() {
   return (
-    // Fondo gris claro para toda la página
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="container mx-auto">
-        
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold text-center text-gray-800">
-            📊 Dashboard de Análisis de Sentimientos
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Header */}
+      <header className="bg-white border-b border-slate-200 shadow-sm">
+        <div className="max-w-6xl mx-auto px-6 py-6">
+          <h1 className="text-2xl font-bold text-slate-900">
+            Análisis de Sentimientos
           </h1>
-          <p className="text-center text-gray-600">Proyecto Final IA - UNSM</p>
-        </header>
+          <p className="text-sm text-slate-600 mt-1">Dashboard de análisis en tiempo real</p>
+        </div>
+      </header>
 
-        {/* Layout principal */}
-        <div className="flex flex-col lg:flex-row gap-8">
-          
-          {/* Columna Izquierda: Analizador */}
-          <aside className="lg:w-1/3">
-            <AnalysisForm />
-          </aside>
+      {/* Main Content */}
+      <div className="max-w-6xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left Column - Analyzer */}
+          <div className="lg:col-span-1">
+            <SentimentAnalyzer />
+          </div>
 
-          {/* Columna Derecha: Dashboard */}
-          <main className="lg:w-2/3">
-            <DashboardCharts />
-          </main>
-
+          {/* Right Column - Charts */}
+          <div className="lg:col-span-2">
+            <SentimentCharts />
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
